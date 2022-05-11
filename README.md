@@ -60,6 +60,7 @@ The easiest way to measure a resistive sensor is to connect one end to power and
 
 ### FIGURE-03 CIRCUIT DIAGRAM
 
+![Screenshot 2022-05-02 185120](https://user-images.githubusercontent.com/103049243/167768678-4c001a08-757e-4286-8378-5637313c4438.png)
 
 
 ### PROCEDURE:
@@ -76,43 +77,37 @@ The easiest way to measure a resistive sensor is to connect one end to power and
 
 
 ### PROGRAM 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+ ``` python
+ int force = 0;
+float f = 0;
+void setup()
+{
+  pinMode (A3, INPUT);
+  pinMode (2, OUTPUT);
+  Serial.begin(9600);
+}
 
-![image](https://user-images.githubusercontent.com/36288975/163533136-5f8d00f2-8456-4d46-b243-d94d45f83eee.png)
+void loop ()
+{
+  force = analogRead(A3);
+  f = map(force,0,512,0,10);
+  Serial.print("Force = ");
+    Serial.println(f);
+  analogWrite(2,force);
+  delay(1000);
+}
+    
+```
 
 ### TABLE -02 OUTPUT VOLTAGES AND CHANGE IN RESISTANCES
 
 
+![Screenshot 2022-05-11 095426](https://user-images.githubusercontent.com/103049243/167768848-9091e3e3-53d4-462a-8f52-7a510d4f0c3e.png)
 
 
 
 
-
-
-
-
-
-
-
+![Screenshot 2022-05-11 095405](https://user-images.githubusercontent.com/103049243/167768840-1f3cbd48-6aa4-4435-ab7f-45af6eb6991c.png)
 
 
 ### RESULTS : Arduino uno is interfaced with FSR and output values are indicated on a graph.
